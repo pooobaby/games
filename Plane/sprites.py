@@ -4,8 +4,8 @@
 # Copyright By Eric in 2020
 
 import random
+from initialize import *
 import pygame
-from initialize import Init
 
 
 # 游戏精灵父类
@@ -43,9 +43,9 @@ class BackGround(GameSprite):
 # 自己的飞机子类
 class Own(GameSprite):
     def __init__(self):
-        super().__init__(Init.OWN_IMAGE, 0)              # 调用父类方法,定义自己飞机的图像和和初始速度
-        self.rect.centerx = Init.SCREEN_RECT.centerx     # 设置Own的位置，centerx指图像中心的的x值
-        self.rect.y = Init.SCREEN_RECT.height - self.rect.height
+        super().__init__(OWN_IMAGE, 0)              # 调用父类方法,定义自己飞机的图像和和初始速度
+        self.rect.centerx = SCREEN_RECT.centerx     # 设置Own的位置，centerx指图像中心的的x值
+        self.rect.y = SCREEN_RECT.height - self.rect.height
         self.bullets = pygame.sprite.Group()        # 创建子弹精灵组
 
     def update(self):
@@ -53,14 +53,14 @@ class Own(GameSprite):
         self.rect.x += self.speed_x                 # 移动的偏移量就是速度的值
         if self.rect.x < 0:                         # 控制Own不能离开屏幕
             self.rect.x = 0
-        elif self.rect.x > Init.SCREEN_RECT.width - self.rect.width:
-            self.rect.x = Init.SCREEN_RECT.width - self.rect.width
+        elif self.rect.x > SCREEN_RECT.width - self.rect.width:
+            self.rect.x = SCREEN_RECT.width - self.rect.width
         """ Own在垂直方向移动 """
         self.rect.y += self.speed_y
         if self.rect.y < 0:                         # 控制Own不能离开屏幕
             self.rect.y = 0
-        elif self.rect.y > Init.SCREEN_RECT.height - self.rect.height:
-            self.rect.y = Init.SCREEN_RECT.height - self.rect.height
+        elif self.rect.y > SCREEN_RECT.height - self.rect.height:
+            self.rect.y = SCREEN_RECT.height - self.rect.height
 
     def fireOne(self):
         """ 创建子弹精灵-1粒 """
@@ -118,7 +118,7 @@ class SpriteDown(GameSprite):
     def update(self):
         super().update()        # 调用父类的update方法
         if self.flag == 1:      # 如果是道具，判断是否飞出屏幕, 及时删除释放出内存空间
-            if self.rect.y >= Init.SCREEN_RECT.height:
+            if self.rect.y >= SCREEN_RECT.height:
                 self.kill()
         else:                   # 如果不是道具，经过一段路后就删除
             if self.rect.y > self.killed_pos[1] + self.rect.height:
@@ -132,7 +132,7 @@ class Bullet(GameSprite):
         -- 根据传入的参数，生成子弹
         :param flag: 'VERTICAL', 'LEFT', 'RIGHT'
         """
-        super().__init__(Init.BULLET_IMAGE, -6)      # 调用父类方法,定义子弹的图像和初始速度
+        super().__init__(BULLET_IMAGE, -6)      # 调用父类方法,定义子弹的图像和初始速度
         self.flag = flag
 
     def update(self):
@@ -142,49 +142,87 @@ class Bullet(GameSprite):
             super().updateObliqueRight()
         else:
             super().update()
-        if self.rect.y < 0 or Init.SCREEN_RECT.width < self.rect.x < 0:
+        if self.rect.y < 0 or SCREEN_RECT.width < self.rect.x < 0:
             self.kill()         # kill()是精灵基类中的方法
+
+
+# BOSS子弹子类
+class BulletBoss(GameSprite):
+    def __init__(self):
+        super().__init__(BULLET_BOSS_IMAGE, 4)
+
+    def update(self):
+        super().update()
+        if self.rect.y > SCREEN_RECT.height:
+            self.kill()
 
 
 # 蓝色敌机子类，飞行轨迹与红色不同
 class EnemyBlue(GameSprite):
     def __init__(self):
+        super().__init__(ENEMY_BLUE_IMAGE)              # 调用父类方法,定义敌机图像和初始速度
         self.x = [-1, 1]                                # 蓝色敌机的运动方向是随机的
-        super().__init__(Init.ENEMY_BLUE_IMAGE)              # 调用父类方法,定义敌机图像和初始速度
         self.speed = 1                                  # 蓝色敌机的速度为1，分成xy两个轴的速度
         self.speed_x = random.choice(self.x)
         self.rect.y = -self.rect.height                 # 敌机出现时的y值
-        max_x = Init.SCREEN_RECT.width - self.rect.width     # 敌机出现时的最大x值
+        max_x = SCREEN_RECT.width - self.rect.width     # 敌机出现时的最大x值
         self.rect.x = random.randint(0, max_x)          # 随机生成敌机出现时的x值
 
     def update(self):
         super().update()                                # 调用父类的update方法
-        if self.rect.x <= 0 or self.rect.x >= Init.SCREEN_RECT.width - self.rect.width:  # 当超过屏幕时取反向速度
+        if self.rect.x <= 0 or self.rect.x >= SCREEN_RECT.width - self.rect.width:  # 当x超过屏幕时取反向速度
             self.speed_x = -self.speed_x
         self.rect.x += self.speed_x
-        if self.rect.y >= Init.SCREEN_RECT.height:           # 判断敌机是否飞出屏幕, 及时删除释放出内存空间
+        if self.rect.y >= SCREEN_RECT.height:           # 判断敌机是否飞出屏幕, 及时删除释放出内存空间
             self.kill()
 
 
 # 红色敌机子类
 class EnemyRed(GameSprite):
     def __init__(self):
-        super().__init__(Init.ENEMY_RED_IMAGE)               # 调用父类方法,定义敌机图像和初始速度
+        super().__init__(ENEMY_RED_IMAGE)               # 调用父类方法,定义敌机图像和初始速度
         self.speed = random.randint(2, 5)               # 随机定义敌机的速度，如果是1则显示在屏幕上不动
         self.rect.y = -self.rect.height                 # 敌机出现时的y值
-        max_x = Init.SCREEN_RECT.width - self.rect.width     # 敌机出现时的最大x值
+        max_x = SCREEN_RECT.width - self.rect.width     # 敌机出现时的最大x值
         self.rect.x = random.randint(0, max_x)          # 随机生成敌机出现时的x值
 
     def update(self):
         super().update()                                # 调用父类的update方法
-        if self.rect.y >= Init.SCREEN_RECT.height:           # 判断敌机是否飞出屏幕, 及时删除释放出内存空间
+        if self.rect.y >= SCREEN_RECT.height:           # 判断敌机是否飞出屏幕, 及时删除释放出内存空间
             self.kill()
+
+
+# boss敌机子类
+class EnemyBoss(GameSprite):
+    def __init__(self):
+        super().__init__(BOSS_IMAGE)                    # 调用父类方法,定义BOSS敌机图像和初始速度
+        self.x = [-1, 1]                                # BOSS敌机的运动方向是随机的
+        self.speed_x = random.choice(self.x)
+        self.rect.y = -self.rect.height                 # BOSS敌机出现时的y值
+        max_x = SCREEN_RECT.width - self.rect.width     # BOSS敌机出现时的最大x值
+        self.rect.x = random.randint(0, max_x)          # 随机生成BOSS敌机出现时的x值
+        self.bullets = pygame.sprite.Group()            # 创建子弹精灵组
+
+    def update(self):
+        super().update()                                # 调用父类的update方法
+        if self.rect.y >= 200:                          # 控制BOSS敌机位于窗口上方
+            self.speed = 0
+        if self.rect.x <= 0 or self.rect.x >= SCREEN_RECT.width - self.rect.width:  # 当x超过屏幕时取反向速度
+            self.speed_x = -self.speed_x
+        self.rect.x += self.speed_x
+
+    def fire(self):
+        bullet = BulletBoss()
+        bullet.rect.centerx = self.rect.centerx
+        bullet.rect.y = self.rect.y + self.rect.height + 30
+        self.bullets.add(bullet)
+
 
 
 # 准备开始子类
 class ReadyGo(GameSprite):
     def __init__(self):
-        super().__init__(Init.READY_IMAGE, 0)               # 调用父类方法,定义准备图像
+        super().__init__(READY_IMAGE, 0)               # 调用父类方法,定义准备图像
         self.rect.x = 128
         self.rect.y = 200
 
