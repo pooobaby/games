@@ -24,3 +24,13 @@
 - .\images\\...：游戏使用的图像文件
 - .\screenshot\...：游戏画面截屏
 
+## 游戏画面截屏
+* 游戏载入图片  
+![游戏载入](https://github.com/pooobaby/games/blob/master/Plane/screenshot/loading.jpg?raw=true)
+* 第一关-图A  
+![第一关-A](https://github.com/pooobaby/games/blob/master/Plane/screenshot/level_01_a.jpg?raw=true)
+* 第一关-图B  
+![第一关-B](https://github.com/pooobaby/games/blob/master/Plane/screenshot/level_01_b.jpg?raw=true)
+* 游戏结束  
+![游戏结束](https://github.com/pooobaby/games/blob/master/Plane/screenshot/gameover.jpg?raw=true)
+
