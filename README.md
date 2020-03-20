@@ -6,5 +6,7 @@
 * 打飞机的小游戏，对pygame和面向对象编程有了更深入的了解
 ## Tetirs
 * 俄罗斯方块，学习了[@yeahatgithub][1]的程序，感谢！界面进行了美化
+## Maze
+* 用递归回溯和prim算法生成迷宫
 
 [1]:https://github.com/yeahatgithub
