@@ -16,8 +16,9 @@
 ## 游戏画面截屏
 * 用递归回溯算法生成的迷宫图片  
 ![用递归回溯算法生成的迷宫图片](https://github.com/pooobaby/games/blob/master/Maze/screenshot/recursion_tracing_0.jpg?raw=true)
-*用递归回溯算法生成的迷宫路径
+* 用递归回溯算法生成的迷宫路径
 ![用递归回溯算法生成的迷宫路径](https://github.com/pooobaby/games/blob/master/Maze/screenshot/recursion_tracing_1.jpg?raw=true)
-*用prim算法生成的迷宫图片
-![用prim算法生成的迷宫图片](https://github.com/pooobaby/games/blob/master/Maze/screenshot/prim_0.jpg?raw=true)
+* 用prim算法生成的迷宫图片
+![用prim算法生成的迷宫图片](https://github.com/pooobaby/games/blob/master/Maze/screenshot/prim.jpg?raw=true)
+
 [1]:https://github.com/yeahatgithub
