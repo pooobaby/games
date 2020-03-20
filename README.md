@@ -7,6 +7,8 @@
 ## Tetirs
 * 俄罗斯方块，学习了[@yeahatgithub][1]的程序，感谢！界面进行了美化
 ## Maze
-* 用递归回溯和prim算法生成迷宫
+* 用回溯和prim算法生成迷宫
+## KnightTour
+* 用回溯算法解决骑士游历问题
 
 [1]:https://github.com/yeahatgithub
