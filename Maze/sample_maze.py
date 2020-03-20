@@ -100,7 +100,7 @@ class MakeMaze(object):
             else:
                 maze[x][y] = 1                  # 没走通把上一步位置标记取消，以便能够退回
                 self.route_list.pop()           # 在位置列表中删除位置，即最后一个元素
-                return False                    # 无路可走说明，没有解
+                return False
         return False
 
     @staticmethod
