@@ -15,4 +15,4 @@
 * 骑士游历问题棋盘分析  
 ![骑士游历问题棋盘分析](https://github.com/pooobaby/games/blob/master/KnightTour/screenshot/chessboard.jpg?raw=true)
 * 用回溯算法解决的骑士游历问题
-![用回溯算法解决的骑士游历问题](https://github.com/pooobaby/games/blob/master/Maze/screenshot/back_tracing.jpg?raw=true)
+![用回溯算法解决的骑士游历问题](https://github.com/pooobaby/games/blob/master/KnightTour/screenshot/back_tracing.jpg?raw=true)
