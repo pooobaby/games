@@ -10,5 +10,7 @@
 * 用回溯和prim算法生成迷宫
 ## KnightTour
 * 用回溯算法解决骑士游历问题
+## GoBang
+* 用极大极小值和剪枝算法实现五子棋AI
 
 [1]:https://github.com/yeahatgithub
