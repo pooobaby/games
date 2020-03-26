@@ -12,5 +12,7 @@
 * 用回溯算法解决骑士游历问题
 ## GoBang
 * 用极大极小值和剪枝算法实现五子棋AI
+## Sudoku
+* 用递归回溯法解决数独，在终盘上随机挖空生成数独
 
 [1]:https://github.com/yeahatgithub
