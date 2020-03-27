@@ -13,5 +13,5 @@
 
 ## 游戏画面截屏
 * 八皇后问题棋盘演示  
-![骑士游历问题棋盘分析](https://github.com/pooobaby/games/blob/master/Queen/screenshot/screenshot.jpg?raw=true)
+![八皇后问题棋盘演示](https://github.com/pooobaby/games/blob/master/Queen/screenshot/screenshot.jpg?raw=true)
 
