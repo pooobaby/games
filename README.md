@@ -16,5 +16,7 @@
 * 用递归回溯法解决数独，在终盘上随机挖空生成数独
 ## Queen
 * 用递归回溯法解决八皇后问题，并在窗口中显示
+## NumPuzzle
+* 用pygame实现数字华容道小游戏
 
 [1]:https://github.com/yeahatgithub
