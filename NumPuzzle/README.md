@@ -14,5 +14,5 @@
 
 ## 游戏画面截屏
 *  数字华容道小游戏
-![数字华容道小游戏](https://github.com/pooobaby/games/blob/master/numpuzzle/screenshot/numpuzzle.jpg?raw=true)
+![数字华容道小游戏](https://github.com/pooobaby/games/blob/master/NumPuzzle/screenshot/numpuzzle.jpg?raw=true)
 
