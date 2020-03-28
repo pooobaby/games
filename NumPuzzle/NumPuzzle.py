@@ -46,7 +46,7 @@ class NumPuzzle(object):
             for j in range(4):
                 self.board[i][j] = i * 4 + j + 1
         """ 打乱初始化数组的顺序 """
-        for n in range(10):
+        for n in range(200):
             move = [(-1, 0), (1, 0), (0, -1), (0, 1)]
             x, y = self.getPos(16)
             if x == 0:
