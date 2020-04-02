@@ -1,5 +1,5 @@
 # 用python编写的小游戏合集
-* 目前有九个小游戏和程序了
+* 目前有11个小游戏和程序了
 ## PingPingBird
 * 用pygame编写的第一个小游戏，以后会不断更新
 ## Plane
@@ -18,5 +18,9 @@
 * 用递归回溯法解决八皇后问题，并在窗口中显示
 ## NumPuzzle
 * 用pygame实现数字华容道小游戏
+## MontyHall
+* 用程序证明MontyHall(三门问题)的概率
+## LinkLink
+* 一个连连看的小游戏
 
 [1]:https://github.com/yeahatgithub
